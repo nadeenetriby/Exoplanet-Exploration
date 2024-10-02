@@ -21,6 +21,8 @@ function App() {
         <Route path="/info" element={<Page1_info />} />
       </Routes>
     </BrowserRouter>
+
+
   );
 }
 

@@ -1,15 +1,14 @@
 .boxInsides {
+  position: sticky;
   width: 500px;
   height: 350px;
   border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
-    0px 5px 10px rgba(0, 0, 0, 0.5),  
-    0px -5px 10px rgba(0, 0, 0, 0.5),
-    5px 0px 10px rgba(0, 0, 0, 0.5),  
-    -5px 0px 10px rgba(0, 0, 0, 0.5); 
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), 0px -5px 10px rgba(0, 0, 0, 0.5),
+    5px 0px 10px rgba(0, 0, 0, 0.5), -5px 0px 10px rgba(0, 0, 0, 0.5);
 }
 .planetNameContainer {
   display: flex;
@@ -30,4 +29,40 @@
 }
 .planetName:hover {
   color: rgb(218, 90, 111);
+}
+
+.planetSection {
+  position: absolute;
+  z-index: 2;
+  margin-top: 220px;
+  display: flex;
+  align-items: center;
+
+  margin-right: 500px;
+  width: 800px;
+  border-radius: 100px;
+  box-shadow:  0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.planetSection2 {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+
+  width: 800px;
+  border-radius: 100px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
+   
+  margin-top: 950px;
+}
+.planetSection3 {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+
+  width: 800px;
+  border-radius: 100px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
+  margin-top: 1670px;
 }
