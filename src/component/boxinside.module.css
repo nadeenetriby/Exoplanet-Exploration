@@ -10,6 +10,10 @@
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), 0px -5px 10px rgba(0, 0, 0, 0.5),
     5px 0px 10px rgba(0, 0, 0, 0.5), -5px 0px 10px rgba(0, 0, 0, 0.5);
 }
+.SectionContainer{
+  display: flex;
+  justify-content: center;
+}
 .planetNameContainer {
   display: flex;
   flex-direction: column;
@@ -42,37 +46,44 @@ width: 120px;
 }
 
 .planetSection {
-  position: absolute;
   z-index: 2;
-  margin-top: 220px;
+ border: 2px solid white;
   display: flex;
   align-items: center;
-  margin-right: 500px;
-  width: 800px;
-  height: 700px;
-  border-radius: 100px;
+  width: 1100px;
+  height: 90vh;
+  margin-top: 100px;
+  border-radius: 10px;
   box-shadow:  0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+p{
+  margin-left: 20px;
 }
 .planetSection2 {
   position: absolute;
   z-index: 2;
+  border: 2px solid white;
+
   display: flex;
   align-items: center;
   height: 700px;
-  width: 800px;
-  border-radius: 100px;
+  width: 1100px;
+  border-radius: 10px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
    
   margin-top: 950px;
 }
 .planetSection3 {
+  border: 2px solid white;
+  margin-top: 90px;
   position: absolute;
   z-index: 2;
   display: flex;
   align-items: center;
-  height: 700px;
-  width: 800px;
-  border-radius: 100px;
+  height: 90vh;
+  width: 1100px;
+  border-radius: 10px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px 10px 10px rgba(0, 0, 0, 0.5);
-  margin-top: 1670px;
+  margin-top: 1900px;
 }
+

@@ -18,7 +18,7 @@ export default function Planet({ planets, setPlanet }) {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 0.7, 0.1, 10);
     const renderer = new THREE.WebGLRenderer({ alpha: true }); // Enable transparency
-    renderer.setSize(230, 300);
+    renderer.setSize(500, 700);
     mountRef.current.appendChild(renderer.domElement);
     //gets texture
     if (mountRef.current) {
