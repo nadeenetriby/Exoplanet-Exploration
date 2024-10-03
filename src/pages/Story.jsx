@@ -1,65 +1,74 @@
 import BG from '../assets/2.jpg'
 import styles from './story.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
+import {paragraph} from '../data/data.js'
 
 const style = {
   position: "absolute", 
+  width: 150,
+  top: 650,
+  left: 1300,
+  backgroundColor: "#4e1363"
 }
-
-const paragraph = ['1', '2', '3', '4', '5', '6', '7']
-const id = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7']
-
-
 export default function Story() {
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isShow, setShow] = useState(undefined)
+  const [isShow, setShow] = useState(false)
   const [zoomIn, setZoomIn] = useState(true)
   const [index, setIndex] = useState(0)
   
-  const handleAnimation = () => {
-    
-    // Remove and then re-add the animation class to restart the animation
-    setIsAnimating(false); 
+  const handleZoomIn = ()=>{
+    if(index == paragraph.length-1)
+      return
+    setShow(false)
+    setZoomIn(true)
+    setIndex((old) => old+1)
+    handleTime()
+  }
+  const handlZoomout = () =>{
+    setShow(false)
+    setZoomIn(false)
     setTimeout(() => {
-      setIsAnimating(true);
-    }, 0);
-  };
-  
+      handleZoomIn();
+    }, 2000);
 
-  function handleTime() {
-    console.log("index ->" ,index);
-    console.log("isShow ->" ,isShow);
-    console.log("zoomIN ->" ,zoomIn);
-
-    // Your animation code here
+  }
+  function handleTime(millsec = 3500) {
     setTimeout(() => {
-      // Code to be executed after 3 seconds
-      console.log('Animation finished!');
       setShow((old) => !old)
-      // Call a function or perform an action here
-    }, 3500); // 3000ms = 3 seconds
+    }, millsec);
   }
   function getID(){
     if (index == 0)
       return styles.id1
     else if(index == 1)
       return styles.id2
-
+    else if(index == 2)
+      return styles.id3
+    else if(index == 3)
+      return styles.id4
   }
-   handleTime();
+
+  useEffect(() =>{
+    setTimeout(() => {
+      setShow(true)
+    }, 3500);
+  }, [])
+
+  function getIamageClass (){
+    return zoomIn ? styles.zoomImage : styles.zoomImageOut
+  }
+
   return (
     <>
      <div className={styles.imageContainer}>
-        <img   src={BG} alt="Sample Image" className={zoomIn ? styles.zoomImage : styles.zoomImageOut}/>
-      {/* <p hidden={!isShow} id='p1' className={styles.story1}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quibusdam unde pariatur illum aliquid itaque. Illo quidem atque eum amet fugiat sit unde adipisci deleniti, nulla voluptatem nobis, similique ipsum!</p> */}
-      {index!=paragraph.length &&< p hidden={(!isShow)} id={getID()} className={styles.story}>{paragraph[index]}</p>}
+        <img src={BG} alt="Sample Image"  className={`${getIamageClass()} ${styles.image } ${getID()}`}/>
+      {index!=paragraph.length &&< p hidden={(!isShow)} className={styles.story}>{paragraph[index]}</p>}
       {(isShow &&index!=paragraph.length) && <Button onClick={() => {
-        setShow(old => !old)
-        setZoomIn(old=> !old)
-        console.log("zsoom in on click",zoomIn);
-        setIndex((old) => old+1)
-        handleTime()
+        if(zoomIn){
+          handlZoomout()
+        }else{
+          handleZoomIn()
+        }
       }} sx={style} variant='contained'> Next</Button> }
     </div>
     </>
