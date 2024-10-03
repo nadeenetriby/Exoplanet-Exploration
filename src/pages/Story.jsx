@@ -11,6 +11,9 @@ const style = {
   left: 1300,
   backgroundColor: "#4e1363"
 }
+import Page1_info from "./Page1_info";
+
+
 export default function Story() {
   const [isShow, setShow] = useState(false)
   const [zoomIn, setZoomIn] = useState(true)
