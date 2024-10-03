@@ -22,7 +22,7 @@ export default function BoxInside({ planets, setPlanet }) {
   }
   return (
     <div>
-      <div className={styles.boxInsides}>
+      {/* <div className={styles.boxInsides}>
         <ButtonRight setPlanet={setPlanet} currentPlanet={planets} />
         <div className={styles.planetNameContainer}>
           <Planet planets={planets} setPlanet={setPlanet} />
@@ -34,7 +34,7 @@ export default function BoxInside({ planets, setPlanet }) {
           </div>
         </div>
         <ButtonLeft setPlanet={setPlanet} currentPlanet={planets} />
-      </div>
+      </div> */}
       <div className="SectionContainer">
         <section className={styles.planetSection} id="first_planet">
           <p>

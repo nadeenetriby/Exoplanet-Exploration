@@ -11,15 +11,51 @@
 .box {
   width: 800px;
   height: 500px;
-  background-color: rgba(69, 36, 77,0.9);
+  background-color: rgba(69, 36, 77, 0.9);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(135deg, rgba(69, 36, 77, 0.8), rgba(100, 45, 90, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(69, 36, 77, 0.8),
+    rgba(100, 45, 90, 0.8)
+  );
   border-radius: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-p{
+p {
   font-size: 20px;
   color: white;
 }
+.NamePosition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Exo {
+  
+  font-family: Antonio;
+  font-size: 144px;
+  color: yellow;
+  text-transform: uppercase;
+}
+.explore {
+  border-style: solid;
+  text-shadow: 1px 1px 4px #ffff00;
+  font-size: 144px;
+  text-transform: uppercase;
+}
+.lineContainer {
+  display: flex;
+ margin-top: 100px;
+  align-items: center;
+}
+.line {
+  border: none;
+  border-top: 5px solid yellow;
+  width: 435px;
+  margin-top: 100px;
+  
+}
+

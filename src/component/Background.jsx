@@ -1,4 +1,4 @@
-import BackgroundImage from "../assets/background2.jpg";
+import BackgroundImage from "../assets/background3.jpg";
 
 import styles from "./background.module.css";
 import Main from "../pages/Main";
