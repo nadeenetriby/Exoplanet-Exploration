@@ -6,7 +6,7 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import Background from "./component/Background";
 import Story from "./pages/Story";
-import FirstChallenge from "./pages/FirstChallenge";
+import ChallengesPage from "./pages/ChallengesPage";
 function App() {
   const [planets, setPlanet] = useState("first");
 
@@ -19,7 +19,7 @@ function App() {
           element={<Main planets={planets} setPlanet={setPlanet} />}
         />
         <Route path="/story" element={<Story />} />
-        <Route path="challenge1" element={<FirstChallenge />} />
+        <Route path="challenges" element={<ChallengesPage />} />
       </Routes>
     </BrowserRouter>
   );
