@@ -5,10 +5,7 @@ import Button from '@mui/material/Button';
 import { paragraph, nextBtnStyle, challengesBtnStyle, skipBtnStyle } from '../data/data.js';
 import Chatbot from './Chatbot.jsx';
 import { useNavigate } from "react-router-dom";
-import VolumeMuteIcon from '@mui/icons-material/VolumeMute';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import { IconButton } from '@mui/material';
-
+i
 export default function Story() {
   const [isShow, setShow] = useState(false);
   const [zoomIn, setZoomIn] = useState(true);
@@ -98,9 +95,6 @@ export default function Story() {
           }
         }} sx={nextBtnStyle} variant='contained'>Next</Button>
       )}
-      <IconButton onClick={handleClick} color="primary">
-                <VolumeUpIcon />
-            </IconButton>
       <Chatbot />
       {isShowBtn && <Button onClick={goToChallenge} sx={challengesBtnStyle} variant='contained'>Go to Challenges</Button>}
     </div>
