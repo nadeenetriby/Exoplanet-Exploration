@@ -1,13 +1,18 @@
-import BG from '../assets/2.jpg';
-import styles from './story.module.css';
-import { useEffect, useState, useRef } from 'react';
-import Button from '@mui/material/Button';
-import { paragraph, nextBtnStyle, challengesBtnStyle, skipBtnStyle } from '../data/data.js';
-import Chatbot from './Chatbot.jsx';
+import BG from "../assets/2.jpg";
+import styles from "./story.module.css";
+import { useEffect, useState, useRef } from "react";
+import Button from "@mui/material/Button";
+import {
+  paragraph,
+  nextBtnStyle,
+  challengesBtnStyle,
+  skipBtnStyle,
+} from "../data/data.js";
+import Chatbot from "./Chatbot.jsx";
 import { useNavigate } from "react-router-dom";
-import VolumeMuteIcon from '@mui/icons-material/VolumeMute';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import { IconButton } from '@mui/material';
+import VolumeMuteIcon from "@mui/icons-material/VolumeMute";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import { IconButton } from "@mui/material";
 
 export default function Story() {
   const [isShow, setShow] = useState(false);
@@ -21,7 +26,7 @@ export default function Story() {
 
   useEffect(() => {
     // Initialize xthe audio object when the component mounts
-    audioRef.current = new Audio('../audio/sound1.mp3');
+    audioRef.current = new Audio("../audio/sound1.mp3");
     audioRef.current.load(); // Load the audio file
 
     setTimeout(() => {
@@ -84,25 +89,49 @@ export default function Story() {
 
   return (
     <div className={styles.imageContainer}>
-      <img src={BG} alt="Sample Image" className={`${getImageClass()} ${styles.image} ${getID()}`} />
-      {index !== paragraph.length && <p hidden={!isShow} className={styles.story}>{paragraph[index]}</p>}
-      <Button onClick={goToChallenge} sx={skipBtnStyle} variant='contained'>Skip Story</Button>
-      {(isShow && index !== paragraph.length) && (
-        <Button onClick={() => {
-          if (zoomIn) {
-            handleZoomOut();
-            handleAudioPlay(); // Play audio on zoom out
-          } else {
-            handleZoomIn();
-            handleAudioPlay(); // Play audio on zoom in
-          }
-        }} sx={nextBtnStyle} variant='contained'>Next</Button>
+      <img
+        src={BG}
+        alt="Sample Image"
+        className={`${getImageClass()} ${styles.image} ${getID()}`}
+      />
+      {index !== paragraph.length && (
+        <p hidden={!isShow} className={styles.story}>
+          {paragraph[index]}
+        </p>
       )}
-      <IconButton onClick={handleClick} color="primary">
+      <Button onClick={goToChallenge} sx={skipBtnStyle} variant="contained">
+        Skip Story
+      </Button>
+      {isShow && index !== paragraph.length && (
+        <Button
+          onClick={() => {
+            if (zoomIn) {
+              handleZoomOut();
+              handleAudioPlay(); // Play audio on zoom out
+            } else {
+              handleZoomIn();
+              handleAudioPlay(); // Play audio on zoom in
+            }
+          }}
+          sx={nextBtnStyle}
+          variant="contained"
+        >
+          Next
+        </Button>
+      )}
+      {/* <IconButton onClick={handleClick} color="primary">
                 <VolumeUpIcon />
-            </IconButton>
+            </IconButton> */}
       <Chatbot />
-      {isShowBtn && <Button onClick={goToChallenge} sx={challengesBtnStyle} variant='contained'>Go to Challenges</Button>}
+      {isShowBtn && (
+        <Button
+          onClick={goToChallenge}
+          sx={challengesBtnStyle}
+          variant="contained"
+        >
+          Go to Challenges
+        </Button>
+      )}
     </div>
   );
 }
