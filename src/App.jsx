@@ -19,7 +19,7 @@ function App() {
           element={<Main planets={planets} setPlanet={setPlanet} />}
         />
         <Route path="/story" element={<Story />} />
-        <Route path="challenges" element={<ChallengesPage />} />
+        <Route path="/challenges" element={<ChallengesPage />} />
       </Routes>
     </BrowserRouter>
   );
