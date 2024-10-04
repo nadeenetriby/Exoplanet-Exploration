@@ -7,7 +7,7 @@ import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Scientist from "./Scientist";
 import TextField from "@mui/material/TextField";
 
-const actions = [{}];
+const actions = [{ id: 'action1'}];
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false); // State to control SpeedDial open/close
@@ -40,7 +40,7 @@ export default function Chatbot() {
         >
           {actions.map((action) => (
             <SpeedDialAction
-              key={action.name}
+            key={action.id}
               icon={
                 <Box
                   sx={{

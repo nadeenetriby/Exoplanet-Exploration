@@ -1,78 +1,80 @@
-
 /* Container for centering the image */
 .imageContainer {
-    width: 100%; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    overflow: hidden; 
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Image with initial state */
-.image{
-    width: 100%;
-    height: 100%;
-    transition: transform 3s ease; /*    Smooth transition */
-    animation: zoom-in 2s ease 2s forwards; 
+.image {
+  width: 100%;
+  height: 100%;
+  transition: transform 3s ease; /*    Smooth transition */
+  animation: zoom-in 2s ease 2s forwards;
 }
 .zoomImage {
-    transform-origin: 20% 50%; /* Default zoom from center */
-    /* animation: zoom-out; */
+  transform-origin: 20% 50%; /* Default zoom from center */
+  /* animation: zoom-out; */
 }
-.id1{
-    transform-origin: -20% -55%;
-}
-
-.id2{
-    transform-origin: 50% 40%;
+.id1 {
+  transform-origin: -20% -55%;
 }
 
-.id3{
-    transform-origin: -30% 50%;
+.id2 {
+  transform-origin: 50% 40%;
 }
 
-.id4{
-    transform-origin: 40% -60%; 
+.id3 {
+  transform-origin: -30% 50%;
+}
+
+.id4 {
+  transform-origin: 40% -60%;
+}
+.id5 {
+  transform-origin: 0% 0%;
 }
 .zoomImageOut {
-    width: 100%;
-    height: 100%;
-    transition: transform 3s ease;
-    /* transform-origin: 20% 50%; */
-    animation: zoom-out 2s ease forwards; /* Trigger zoom-out */
+  width: 100%;
+  height: 100%;
+  transition: transform 3s ease;
+  /* transform-origin: 20% 50%; */
+  animation: zoom-out 2s ease forwards; /* Trigger zoom-out */
 }
 /* Zoom animation */
 @keyframes zoom-in {
-    0% {
-        transform: scale(1) translate(0, 0); /* Normal size */
-    }
-    100% {
-        transform: scale(2) translate(-25%, -25%); /* Zoom and shift */
-    }
+  0% {
+    transform: scale(1) translate(0, 0); /* Normal size */
+  }
+  100% {
+    transform: scale(2) translate(-25%, -25%); /* Zoom and shift */
+  }
 }
 
 @keyframes zoom-out {
-    0% {
-        transform: scale(2) translate(-25%, -25%);
-    }
-    100% {
-        transform: scale(1) translate(0, 0); /* Back to normal size */
-    }
+  0% {
+    transform: scale(2) translate(-25%, -25%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0); /* Back to normal size */
+  }
 }
-.story{
-    position: absolute; 
-    width: 300px;
-    top: 50%;          
-    left: 20%; 
-    color: rgb(236, 236, 236);   
-    padding: 15px;
-    border-radius: 10px; 
-    letter-spacing: 1px;
-    word-spacing: 1px;
-    border: 5px rgb(90, 22, 105) solid;
-    background-color: rgb(90, 22, 105, 0.5);
-    font-size: 22px;            
-    transform: translate(-50%, -50%);
+.story {
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  left: 20%;
+  color: rgb(236, 236, 236);
+  padding: 15px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  border: 5px rgb(90, 22, 105) solid;
+  background-color: rgb(90, 22, 105, 0.5);
+  font-size: 22px;
+  transform: translate(-50%, -50%);
 }
