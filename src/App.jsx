@@ -6,7 +6,7 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import Background from "./component/Background";
 import Story from "./pages/Story";
-import ChallengesPage from "./pages/ChallengesPage";
+import FirstChallenge from "./pages/FirstChallenge";
 function App() {
   const [planets, setPlanet] = useState("first");
 
