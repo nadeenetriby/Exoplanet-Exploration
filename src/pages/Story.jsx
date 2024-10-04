@@ -2,16 +2,18 @@ import BG from '../assets/2.jpg'
 import styles from './story.module.css'
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
-import {paragraph} from '../data/data.js'
+import {paragraph} from '../data/data.js';
+import Chatbot from './chatbot.jsx';
 
 const style = {
   position: "absolute", 
   width: 150,
-  top: 650,
+  top: 50,
   left: 1300,
   backgroundColor: "#4e1363"
 }
-import Page1_info from "./Page1_info";
+// import Page1_info from "./Page1_info";
+
 
 
 export default function Story() {
@@ -62,7 +64,7 @@ export default function Story() {
   }
 
   return (
-    <>
+    <div>
      <div className={styles.imageContainer}>
         <img src={BG} alt="Sample Image"  className={`${getIamageClass()} ${styles.image } ${getID()}`}/>
       {index!=paragraph.length &&< p hidden={(!isShow)} className={styles.story}>{paragraph[index]}</p>}
@@ -73,7 +75,8 @@ export default function Story() {
           handleZoomIn()
         }
       }} sx={style} variant='contained'> Next</Button> }
+    <Chatbot />
     </div>
-    </>
+    </div>
   )
 }
