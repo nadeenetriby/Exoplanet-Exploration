@@ -1,11 +1,14 @@
 export const paragraph =[
-    `Dr. Z, a brilliant scientist, was on a mission to explore the X system, known for its seven fascinating planets. After sending an unusual message about a major discovery, he suddenly vanished. Now, it’s your job to retrace his steps and find out what happened.
+    `Dr. Z, a brilliant scientist, was on a mission to explore the Kepler-56 system. During a major discovery, he mysteriously disappeared without a trace.
 `,
-`Before disappearing, Dr. Z sent a final, fragmented transmission. His message contained strange puzzles about the planets and their orbits, but it was cut short. Now, you need to follow the clues he left behind to discover where he went.
+`Kepler-56 contains three planets orbiting a red giant star, slightly larger than our Sun, and is 2,978 light-years away from Earth.
 `,
-`To find Dr. Z, you’ll solve challenges based on planetary science, space travel, and the unique features of X. Each challenge brings you closer to understanding what went wrong and where Dr. Z might be hiding.
+`In his last transmission, Dr. Z shared key information about the planets' orbits and characteristics, but the message was abruptly cut off, leaving you with fragmented clues.
 `,
-`Explore the X planets, learn what makes them unique, and gather clues along the way. Are you ready to solve the mystery of Dr. Z’s disappearance and complete his mission? The fate of the expedition depends on you.`
+`To solve the mystery of Dr. Z’s disappearance, you must retrace his steps and complete various challenges. Each solved puzzle brings you closer to uncovering what really happened.
+`,
+`By exploring the Kepler-56 planets and understanding their uniqueness, you will piece together the puzzle of Dr. Z’s mission. The outcome now depends on you.
+`
 ]
 
 export const skipBtnStyle = {

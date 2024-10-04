@@ -36,6 +36,9 @@
   transform-origin: 40% -60%;
 }
 .id5 {
+  transform-origin: 50% 40%;
+}
+.id6 {
   transform-origin: 0% 0%;
 }
 .zoomImageOut {
