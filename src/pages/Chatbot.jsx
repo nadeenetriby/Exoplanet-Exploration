@@ -53,7 +53,7 @@ export default function Chatbot() {
                     justifyContent: "center",
                     borderRadius: 1,
                     position: "absolute",
-                    right: "0",
+                    right: "0px",
                     bottom: "0px",
                   }}
                   onClick={handleActionClick}

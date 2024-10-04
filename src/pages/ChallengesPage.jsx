@@ -32,7 +32,7 @@ export default function ChallengesPage() {
     <div>
       <img src={background} alt="challenges background" />
       {planet.map((item) => (
-        <p key={item.name} onClick={() => handleClick(item.route)} id={item.id}>
+        <p  key={item.name} onClick={() => handleClick(item.route)} id={item.id}>
           {item.name}
         </p>
       ))}

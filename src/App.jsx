@@ -3,7 +3,6 @@ import { useState } from "react";
 import Planet from "./component/Planet";
 import Main from "./pages/Main";
 import "./App.css";
-import Navbar from "./component/Navbar";
 import Background from "./component/Background";
 import Story from "./pages/Story";
 import ChallengesPage from "./pages/ChallengesPage";
@@ -16,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Background planets={planets} setPlanet={setPlanet} />
+      {/* <Navbar /> */}
       <Routes>
         <Route
           path="/"
