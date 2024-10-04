@@ -3,7 +3,6 @@ import BackgroundImage from "../assets/background3.jpg";
 import styles from "./background.module.css";
 import Main from "../pages/Main";
 import Navbar from "./Navbar";
-import Page1_info from "../pages/FirstChallenge";
 
 export default function Background() {
   return (

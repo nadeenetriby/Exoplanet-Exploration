@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./navlist.module.css";
-import Page1_info from "../pages/FirstChallenge";
 const navList = ["Main", "explore story", "quiz", "ranking", "account"];
 
 export default function NavList() {

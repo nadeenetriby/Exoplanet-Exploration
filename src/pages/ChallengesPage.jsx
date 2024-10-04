@@ -11,6 +11,7 @@ function goToQuestions() {
 }
 
 
+
 const planet = [
   {
     name: "Kepler-56b",
@@ -26,12 +27,13 @@ const planet = [
   }
 ]
 
+
 export default function ChallengesPage() {
   return (
   <div>
-  <img src={background} alt="challenges background" />
+  <img className={styles.img} src={background} alt="challenges background" />
   {planet.map((item) => (
-    <p id={item.id}>{item.name}</p>
+    <p className={styles.p} id={item.id}>{item.name}</p>
   ))}
   </div>    
   );
