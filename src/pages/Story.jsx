@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import {paragraph, nextBtnStyle, challengesBtnStyle, skipBtnStyle} from '../data/data.js';
 import Chatbot from './Chatbot.jsx';
-import { height } from '@fortawesome/free-solid-svg-icons/fa0';
 import { useNavigate } from "react-router-dom";
 
 
