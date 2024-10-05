@@ -1,5 +1,5 @@
 import styles from "./Planet2.module.css";
-import image1 from "../assets/ChallengesBackground/4.jpg"
+import image1 from "../assets/PlanetsBackground/PLANET2.jpg"
 
 export default function Planet2(){
     return <div>
