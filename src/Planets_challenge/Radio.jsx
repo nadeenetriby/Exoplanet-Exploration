@@ -1,14 +1,16 @@
 import * as React from "react";
 import Radios from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
+
 export default function Radio() {
   const [selectedValue, setSelectedValue] = React.useState("a");
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+
   return (
-    <div>
-      {" "}
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
       <FormControlLabel
         control={
           <Radios
@@ -18,7 +20,7 @@ export default function Radio() {
             name="radio-buttons"
           />
         }
-        label="Option A"
+        label="3 million years"
         sx={{ color: "beige" }}
       />
       <FormControlLabel
@@ -26,11 +28,11 @@ export default function Radio() {
           <Radios
             checked={selectedValue === "b"}
             onChange={handleChange}
-            value="b"
+            value="1 million years"
             name="radio-buttons"
           />
         }
-        label="Option B"
+        label="7 million years"
         sx={{ color: "beige" }}
       />
       <FormControlLabel
@@ -38,11 +40,11 @@ export default function Radio() {
           <Radios
             checked={selectedValue === "c"}
             onChange={handleChange}
-            value="c"
+            value="8 million years"
             name="radio-buttons"
           />
         }
-        label="option c"
+        label="5 million years"
         sx={{ color: "beige" }}
       />
       <FormControlLabel
@@ -54,7 +56,7 @@ export default function Radio() {
             name="radio-buttons"
           />
         }
-        label="Option D"
+        label="8 million years"
         sx={{ color: "beige" }}
       />
     </div>

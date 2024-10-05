@@ -1,4 +1,4 @@
-img{
+.img{
 
   display: flex;
   justify-content: center;
@@ -8,22 +8,22 @@ img{
   position: absolute;
   /* z-index: 2; */
 }
-p{
+.p{
   color: white;
   font-size: 32px;
   position: absolute;
   background-color: black;
   cursor: pointer;
 }
-#planet1{
+#plant1{
   top: 85%;
   left: 40%;
 }
-#planet2{
+#plant2{
   top: 41%;
   left: 51%;
 }
-#planet3{
+#plant3{
   top: 55%;
   left: 79%;
 }

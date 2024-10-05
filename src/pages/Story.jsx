@@ -6,32 +6,34 @@ import { paragraph, nextBtnStyle, challengesBtnStyle, skipBtnStyle } from '../da
 import Chatbot from './Chatbot.jsx';
 import { useNavigate } from "react-router-dom";
 
+// Centralized audio files
+const audioFiles = [
+  '../audio/sound1.mp3',
+  '../audio/sound2.mp3',
+  '../audio/sound3.mp3',
+  '../audio/sound4.mp3',
+  '../audio/sound5.mp3'
+];
+
 export default function Story() {
   const [isShow, setShow] = useState(false);
   const [zoomIn, setZoomIn] = useState(true);
   const [index, setIndex] = useState(0);
   const [isShowBtn, setShowBtn] = useState(false);
   const navigate = useNavigate();
-
+  
   // Create an audio ref to persist the object across renders
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Initialize xthe audio object when the component mounts
-    audioRef.current = new Audio('../audio/sound1.mp3');
-    audioRef.current.load(); // Load the audio file
-
     setTimeout(() => {
       setShow(true);
-      // Ensure the audio plays only if it can
-      audioRef.current.play().catch((error) => {
-        console.log("Autoplay blocked: ", error);
-      });
-    }, 2000);
-  }, []); // Empty dependency array ensures this runs once
+    }, 3500);
+    playAudio(0); // Play the first audio when the component mounts
+  }, []); 
 
   function goToChallenge() {
-    console.log("in go to challenge");
+    console.log("Navigating to challenges");
     navigate("/challenges");
   }
 
@@ -40,63 +42,79 @@ export default function Story() {
       setShowBtn(true);
       return;
     }
-    setShow(false);
+    setShow(false); // Hide the content before zooming in
     setZoomIn(true);
     setIndex((old) => old + 1);
-    handleTime();
+    handleTime(() => {
+      setShow(true); // Show the content again after zooming in
+      playAudio(index + 1); // Play the audio after zoom-in completes
+    }, 2000); // Adjust this delay to match your zoom-in effect's duration
+  };
+
+  const playAudio = (index) => {
+    if (audioRef.current) {
+      audioRef.current.src = audioFiles[index]; // Set the new audio source
+      audioRef.current.play().catch(error => {
+        console.error("Error playing audio: ", error); // Handle audio playback error
+      });
+    }
   };
 
   const handleZoomOut = () => {
-    setShow(false);
+    setShow(false); // Hide the content before zooming out
     setZoomIn(false);
     setTimeout(() => {
-      handleZoomIn();
-    }, 2000);
+      handleZoomIn(); // Trigger zoom in after zooming out completes
+    }, 2000); // Adjust this delay to match your zoom-out effect's duration
   };
 
-  function handleTime(millsec = 3000) {
+  function handleTime(callback, millsec = 3000) {
     setTimeout(() => {
-      setShow((old) => !old);
+      callback(); // Call the provided callback function after the timeout
     }, millsec);
   }
 
   function getID() {
-    if (index === 0) return styles.id1;
-    else if (index === 1) return styles.id2;
-    else if (index === 2) return styles.id3;
-    else if (index === 3) return styles.id4;
-    else if (index === 4) return styles.id5;
+    switch (index) {
+      case 0: return styles.id1;
+      case 1: return styles.id2;
+      case 2: return styles.id3;
+      case 3: return styles.id4;
+      case 4: return styles.id5;
+      default: return ''; // Fallback if index exceeds the number of styles
+    }
   }
 
   function getImageClass() {
     return zoomIn ? styles.zoomImage : styles.zoomImageOut;
   }
 
-  const handleAudioPlay = () => {
-    // Play audio after user interaction, handle promise rejection if necessary
-    audioRef.current.play().catch((error) => {
-      console.log("Error playing audio: ", error);
-    });
+  const handleParagraph = () => {
+    if (index < paragraph.length) {
+      return <p hidden={!isShow} className={styles.story}>{paragraph[index]}</p>;
+    }
+    return null; // Changed from undefined to null for clarity
   };
 
   return (
-    <div className={styles.imageContainer}>
-      <img src={BG} alt="Sample Image" className={`${getImageClass()} ${styles.image} ${getID()}`} />
-      {index !== paragraph.length && <p hidden={!isShow} className={styles.story}>{paragraph[index]}</p>}
-      <Button onClick={goToChallenge} sx={skipBtnStyle} variant='contained'>Skip Story</Button>
-      {(isShow && index !== paragraph.length) && (
-        <Button onClick={() => {
-          if (zoomIn) {
-            handleZoomOut();
-            handleAudioPlay(); // Play audio on zoom out
-          } else {
-            handleZoomIn();
-            handleAudioPlay(); // Play audio on zoom in
-          }
-        }} sx={nextBtnStyle} variant='contained'>Next</Button>
-      )}
-      {/* <Chatbot /> */}
-      {isShowBtn && <Button onClick={goToChallenge} sx={challengesBtnStyle} variant='contained'>Go to Challenges</Button>}
-    </div>
+    <>
+      <div className={styles.imageContainer}>
+        <img src={BG} alt="Sample Image" className={`${getImageClass()} ${styles.image} ${getID()}` } />
+        {handleParagraph()}
+        <Button onClick={goToChallenge} sx={skipBtnStyle} variant='contained'>Skip Story</Button>
+        {(isShow && index < paragraph.length) && (
+          <Button onClick={() => {
+            if (zoomIn) {
+              handleZoomOut();
+            } else {
+              handleZoomIn();
+            }
+          }} sx={nextBtnStyle} variant='contained'>Next</Button>
+        )}
+        {/* <Chatbot /> */}
+        {isShowBtn && <Button onClick={goToChallenge} sx={challengesBtnStyle} variant='contained'>Go to Challenges</Button>}
+      </div>
+      <audio ref={audioRef} /> {/* Hidden audio player */}
+    </>
   );
 }

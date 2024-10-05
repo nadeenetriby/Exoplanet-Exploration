@@ -8,12 +8,15 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Radio from "./Radio";
 
-export default function Dialog({ open, onClose, index }) {
+
+
+
+export default function Dialog({ open, onClose, list }) {
   return (
     <div>
       <React.Fragment>
         <Dialogs
-          sx={{ height: "650px", overflow: "hidden" }}
+          sx={{ height: "650px", overflow: "hidden"}}
           open={open}
           onClose={onClose}
           aria-labelledby="alert-dialog-title"
@@ -23,11 +26,13 @@ export default function Dialog({ open, onClose, index }) {
               backgroundColor: "transparent",
               boxShadow: "none",
               overflow: "hidden",
+              width:"900px",
+              maxHeight: "100vh"
             },
           }}
         >
           <DialogTitle id="alert-dialog-title">
-            <Paragraph1 index={index} />
+            <Paragraph1 question={list} />
           </DialogTitle>
           <DialogContent>
             <Radio />
